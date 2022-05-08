@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CakeShop.Data</name>
+    </assembly>
+    <members>
+        <member name="T:CakeShop.Data.Baker">
+            <summary>
+            This piece of code act as the table of the bakers information in the Cake database.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Data.Baker.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeShop.Data.Baker"/> class.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Data.Baker.CopyFrom(CakeShop.Data.Baker)">
+            <summary>
+            this method duplicate info of baker.
+            </summary>
+            <param name="baker">Baker.</param>
+        </member>
+        <member name="P:CakeShop.Data.Baker.Id">
+            <summary>
+            Gets or sets Id.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Baker.Name">
+            <summary>
+            Gets or sets Name of the baker.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Baker.Salary">
+            <summary>
+            Gets or sets the salary of the baker.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Baker.Position">
+            <summary>
+            gets or sets position of the baker.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Baker.Workhours">
+            <summary>
+            gets or sets the workhours of the baker.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Baker.Cakes">
+            <summary>
+            Gets or sets Cakes.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Data.Baker.ToString">
+            <summary>
+            Returns the string of this class.
+            </summary>
+            <returns>String. </returns>
+        </member>
+        <member name="T:CakeShop.Data.Cake">
+            <summary>
+            This class acts as the table in the database.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Data.Cake.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeShop.Data.Cake"/> class.
+            Constructor.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Cake.Id">
+            <summary>
+            Gets or sets the unique indentifier.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Cake.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Cake.Shape">
+            <summary>
+            Gets or sets the shape of the cake.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Cake.Color">
+            <summary>
+            Gets or sets the color of the cake.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Cake.Price">
+            <summary>
+            Gets or sets the price of the cake.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Cake.DeliveryId">
+            <summary>
+            Gets or sets the delivery id.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Cake.Delivery">
+            <summary>
+            Gets or sets the delivery.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Cake.BakerId">
+            <summary>
+            Gets or sets the baker id.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Cake.Baker">
+            <summary>
+            Gets or sets the baker.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Cake.Bakers">
+            <summary>
+            Gets or sets the bakers.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Cake.Selected">
+            <summary>
+            Gets or sets a value indicating whether gets or sets the cake whether it is selected.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Cake.BasePrice">
+            <summary>
+            Gets or sets the Baseprice.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Data.Cake.ToString">
+            <summary>
+            ToString method.
+            </summary>
+            <returns>String.</returns>
+        </member>
+        <member name="T:CakeShop.Data.CakeDbContext">
+            <summary>
+            This class makes the model of the database.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Data.CakeDbContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeShop.Data.CakeDbContext"/> class.
+            Constructor.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.CakeDbContext.Deliveries">
+             <summary>
+             Gets or sets the delivery.
+             </summary>
+            
+        </member>
+        <member name="P:CakeShop.Data.CakeDbContext.Cakes">
+            <summary>
+            Gets or sets the cakes.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.CakeDbContext.Bakers">
+            <summary>
+            Gets or sets the bakers.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Data.CakeDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            This connects the database with the application.
+            </summary>
+            <param name="optionsBuilder">OptionBuilder.</param>
+        </member>
+        <member name="M:CakeShop.Data.CakeDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Creates the model of the database.
+            </summary>
+            <param name="modelBuilder">ModelBuilder.</param>
+        </member>
+        <member name="T:CakeShop.Data.Delivery">
+            <summary>
+            This is class Delivery of the database.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Data.Delivery.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeShop.Data.Delivery"/> class.
+            Constructor.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Delivery.Id">
+            <summary>
+            Gets or sets the unique ientifier.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Delivery.Person">
+            <summary>
+            Gets or sets the delivery man.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Delivery.Income">
+            <summary>
+            Gets or sets the Income of the delivery.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Delivery.Mins">
+            <summary>
+            Gets or sets the delivery minutes.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Delivery.Schedule">
+            <summary>
+            Gets or sets the schedule of the delivery person.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.Delivery.Cakes">
+            <summary>
+            Gets or sets the Cakes collection.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Data.Delivery.ToString">
+            <summary>
+            Returns the string of the class.
+            </summary>
+            <returns>String.</returns>
+        </member>
+    </members>
+</doc>

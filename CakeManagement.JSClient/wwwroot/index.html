@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Baker UI</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Baker Catalog</h1>
+
+    <div id="formdiv">
+        <label>Baker  Name</label>
+        <input type="text" id="bakerName" />
+        <label>Baker  Salary</label>
+        <input type="text" id="salary" />
+        <label>Baker  Workhours</label>
+        <input type="text" id="workhours" />
+        <button type="button" onclick="create()">Add Baker</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Workhours</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

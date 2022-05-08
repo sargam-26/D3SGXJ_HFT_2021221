@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CakeManagementApp</name>
+    </assembly>
+    <members>
+        <member name="T:CakeManagementApp.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:CakeManagementApp.App.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeManagementApp.App"/> class.
+            App method created instances
+            </summary>
+        </member>
+        <member name="T:CakeManagementApp.App.MyIoc">
+            <summary>
+            The Ioc.
+            </summary>
+        </member>
+        <member name="P:CakeManagementApp.App.MyIoc.Instance">
+            <summary>
+            Gets ioc instance.
+            </summary>
+        </member>
+        <member name="M:CakeManagementApp.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:CakeManagementApp.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:CakeManagementApp.BL.BakerLogic">
+            <summary>
+            this class implements the methods in interface BakerLogic
+            </summary>
+        </member>
+        <member name="M:CakeManagementApp.BL.BakerLogic.#ctor(CakeManagementApp.BL.IEditorService,GalaSoft.MvvmLight.Messaging.IMessenger,CakeShop.Repository.IBakerRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeManagementApp.BL.BakerLogic"/> class.
+            this constructor initializes the editService, messangerService and bakerRepository of the bkaer
+            </summary>
+            <param name="editService">editService.</param>
+            <param name="messengerService">Name.</param>
+            <param name="bakerRepository">bakerRepo.</param>
+        </member>
+        <member name="M:CakeManagementApp.BL.BakerLogic.Add(System.Collections.Generic.IList{CakeManagementApp.Data.BakerVM})">
+            <summary>
+            this method adds the ist of the bakers.
+            </summary>
+            <param name="bakerList">add list.</param>
+        </member>
+        <member name="M:CakeManagementApp.BL.BakerLogic.Delete(System.Collections.Generic.IList{CakeManagementApp.Data.BakerVM},CakeManagementApp.Data.BakerVM)">
+            <summary>
+            this method deletes the baker from the bakerList
+            </summary>
+            <param name="bakerList">bakerList.</param>
+            <param name="baker">Baker.</param>
+        </member>
+        <member name="M:CakeManagementApp.BL.BakerLogic.EditBaker(CakeManagementApp.Data.BakerVM)">
+            <summary>
+            this method edits the info of the baker.
+            </summary>
+            <param name="baker">baker.</param>
+        </member>
+        <member name="M:CakeManagementApp.BL.BakerLogic.GetAllBakers">
+            <summary>
+            this method gets or lsits all the bakers of the baker table
+            </summary>
+            <returns>All bakers.</returns>
+        </member>
+        <member name="T:CakeManagementApp.BL.IBakerLogic">
+            <summary>
+            interface declares methods to perform for Bker table
+            </summary>
+        </member>
+        <member name="M:CakeManagementApp.BL.IBakerLogic.EditBaker(CakeManagementApp.Data.BakerVM)">
+            <summary>
+            this method declares editBaker method.
+            </summary>
+            <param name="baker">EditBaker.</param>
+        </member>
+        <member name="M:CakeManagementApp.BL.IBakerLogic.Add(System.Collections.Generic.IList{CakeManagementApp.Data.BakerVM})">
+            <summary>
+            this method declares Add baker method in a list.
+            </summary>
+            <param name="bakerList">bakers.</param>
+        </member>
+        <member name="M:CakeManagementApp.BL.IBakerLogic.Delete(System.Collections.Generic.IList{CakeManagementApp.Data.BakerVM},CakeManagementApp.Data.BakerVM)">
+            <summary>
+            this method declares delete method to del a baker from the list.
+            </summary>
+            <param name="bakerList">bakers</param>
+            <param name="baker">bakers.</param>
+        </member>
+        <member name="M:CakeManagementApp.BL.IBakerLogic.GetAllBakers">
+            <summary>
+            this method is for getAll bakers list.
+            </summary>
+            <returns>All bakers.</returns>
+        </member>
+        <member name="T:CakeManagementApp.BL.IBakerLogicVM">
+            <summary>
+            interface declares methods to perform for Bker table
+            </summary>
+        </member>
+        <member name="M:CakeManagementApp.BL.IBakerLogicVM.EditBaker(CakeManagementApp.Data.BakerVM)">
+            <summary>
+            this method declares editBaker method.
+            </summary>
+            <param name="baker">Baker.</param>
+        </member>
+        <member name="M:CakeManagementApp.BL.IBakerLogicVM.Add(System.Collections.Generic.IList{CakeManagementApp.Data.BakerVM})">
+            <summary>
+            this method declares Add baker method in a list.
+            </summary>
+            <param name="bakerList">bakers.</param>
+        </member>
+        <member name="M:CakeManagementApp.BL.IBakerLogicVM.Delete(System.Collections.Generic.IList{CakeManagementApp.Data.BakerVM},CakeManagementApp.Data.BakerVM)">
+            <summary>
+            this method declares delete method to del a baker from the list.
+            </summary>
+            <param name="bakerList">bakers</param>
+            <param name="baker">bakers.</param>
+        </member>
+        <member name="M:CakeManagementApp.BL.IBakerLogicVM.GetAllBakers">
+            <summary>
+            this method is for getAll bakers list.
+            </summary>
+            <returns>All bakers.</returns>
+        </member>
+        <member name="T:CakeManagementApp.BL.IEditorService">
+            <summary>
+            Editor service.
+            </summary>
+        </member>
+        <member name="M:CakeManagementApp.BL.IEditorService.EditBaker(CakeManagementApp.Data.BakerVM)">
+            <summary>
+            Edit baker.
+            </summary>
+            <param name="baker">Baker.</param>
+            <returns>Baker obj.</returns>
+        </member>
+        <member name="T:CakeManagementApp.Data.BakerVM">
+            <summary>
+            this calss contains fields of baker table
+            </summary>
+        </member>
+        <member name="P:CakeManagementApp.Data.BakerVM.ID">
+            <summary>
+            Gets or sets it gets and sets id of the baker
+            </summary>
+        </member>
+        <member name="P:CakeManagementApp.Data.BakerVM.Name">
+            <summary>
+            Gets or sets and sets name of the baker
+            </summary>
+        </member>
+        <member name="P:CakeManagementApp.Data.BakerVM.Salary">
+            <summary>
+            Gets or sets and sets salary of the baker
+            </summary>
+        </member>
+        <member name="P:CakeManagementApp.Data.BakerVM.Position">
+            <summary>
+            Gets or sets and sets position of the baker
+            </summary>
+        </member>
+        <member name="P:CakeManagementApp.Data.BakerVM.WorkHours">
+            <summary>
+            Gets or sets and sets workhrs
+            </summary>
+        </member>
+        <member name="M:CakeManagementApp.Data.BakerVM.CopyFrom(CakeManagementApp.Data.BakerVM)">
+            <summary>
+            this method copies gets baker name as parameter
+            </summary>
+            <param name="baker">baker.</param>
+        </member>
+        <member name="T:CakeManagementApp.EditorService">
+            <summary>
+            This is Editor Service class.
+            </summary>
+        </member>
+        <member name="T:CakeManagementApp.EditorServiceWindow">
+            <summary>
+            This is EditorServiceWindow class.
+            </summary>
+        </member>
+        <member name="T:CakeManagementApp.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:CakeManagementApp.MainWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeManagementApp.MainWindow"/> class.
+            Main Window InitializeComponent method.
+            </summary>
+        </member>
+        <member name="M:CakeManagementApp.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CakeManagementApp.UI.EditorServiceViaWindow">
+            <summary>
+            this class implements the method from IEditorService Interface
+            </summary>
+        </member>
+        <member name="M:CakeManagementApp.UI.EditorServiceViaWindow.EditBaker(CakeManagementApp.Data.BakerVM)">
+            <summary>
+            this method edit the baker
+            </summary>
+            <param name="baker">baker.</param>
+            <returns> bool.</returns>
+        </member>
+        <member name="T:CakeManagementApp.UI.EditorWindow">
+            <summary>
+            Interaction logic for EditorWindow.xaml
+            </summary>
+            <summary>
+            EditorWindow
+            </summary>
+        </member>
+        <member name="P:CakeManagementApp.UI.EditorWindow.Baker">
+            <summary>
+            Gets baker editorViewModel
+            </summary>
+        </member>
+        <member name="M:CakeManagementApp.UI.EditorWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeManagementApp.UI.EditorWindow"/> class.
+            Constructor
+            </summary>
+        </member>
+        <member name="M:CakeManagementApp.UI.EditorWindow.#ctor(CakeManagementApp.Data.BakerVM)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeManagementApp.UI.EditorWindow"/> class.
+            Constructor, Initializes  baker editorViewModel as oldbaker.
+            </summary>
+            <param name="oldBaker">baker.</param>
+        </member>
+        <member name="M:CakeManagementApp.UI.EditorWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CakeManagementApp.VM.EditorViewModel">
+            <summary>
+            edits the baker info.
+            </summary>
+        </member>
+        <member name="P:CakeManagementApp.VM.EditorViewModel.Baker">
+            <summary>
+            Gets or sets and sets the baker
+            </summary>
+        </member>
+        <member name="M:CakeManagementApp.VM.EditorViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeManagementApp.VM.EditorViewModel"/> class.
+            constructor instantiates the baker fields.
+            </summary>
+        </member>
+        <member name="T:CakeManagementApp.VM.MainViewModel">
+            <summary>
+            this class get and set field and methods
+            </summary>
+        </member>
+        <member name="P:CakeManagementApp.VM.MainViewModel.BakerSelected">
+            <summary>
+            Gets or sets gte and set prop for selecting baker
+            </summary>
+        </member>
+        <member name="P:CakeManagementApp.VM.MainViewModel.Bakers">
+            <summary>
+            gets baker vm.
+            </summary>
+        </member>
+        <member name="P:CakeManagementApp.VM.MainViewModel.AddCommand">
+            <summary>
+            gets int of command
+            </summary>
+        </member>
+        <member name="P:CakeManagementApp.VM.MainViewModel.DeleteCommand">
+            <summary>
+            gets deleted command prop
+            </summary>
+        </member>
+        <member name="P:CakeManagementApp.VM.MainViewModel.ModifyCommand">
+            <summary>
+            gets modify command prop
+            </summary>
+        </member>
+        <member name="M:CakeManagementApp.VM.MainViewModel.#ctor(CakeManagementApp.BL.IBakerLogicVM)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeManagementApp.VM.MainViewModel"/> class.
+            const with logic of baker to add, modify and delete bakers.
+            </summary>
+            <param name="logic">Ibkaer obj.</param>
+        </member>
+        <member name="M:CakeManagementApp.VM.MainViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeManagementApp.VM.MainViewModel"/> class.
+            const initialized
+            </summary>
+        </member>
+    </members>
+</doc>

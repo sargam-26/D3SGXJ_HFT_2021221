@@ -1,0 +1,830 @@
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/App.xaml b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/App.xaml
+new file mode 100644
+index 0000000..204292e
+--- /dev/null
++++ b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/App.xaml
+@@ -0,0 +1,9 @@
++﻿<Application x:Class="CakeManagement.Api.App"
++             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
++             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
++             xmlns:local="clr-namespace:CakeManagement.Api"
++             StartupUri="MainWindow.xaml">
++    <Application.Resources>
++         
++    </Application.Resources>
++</Application>
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/App.xaml.cs b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/App.xaml.cs
+new file mode 100644
+index 0000000..5c74fff
+--- /dev/null
++++ b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/App.xaml.cs
+@@ -0,0 +1,17 @@
++﻿using System;
++using System.Collections.Generic;
++using System.Configuration;
++using System.Data;
++using System.Linq;
++using System.Threading.Tasks;
++using System.Windows;
++
++namespace CakeManagement.Api
++{
++    /// <summary>
++    /// Interaction logic for App.xaml
++    /// </summary>
++    public partial class App : Application
++    {
++    }
++}
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/AssemblyInfo.cs b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/AssemblyInfo.cs
+new file mode 100644
+index 0000000..8b5504e
+--- /dev/null
++++ b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/AssemblyInfo.cs
+@@ -0,0 +1,10 @@
++using System.Windows;
++
++[assembly: ThemeInfo(
++    ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located
++                                     //(used if a resource is not found in the page,
++                                     // or application resource dictionaries)
++    ResourceDictionaryLocation.SourceAssembly //where the generic resource dictionary is located
++                                              //(used if a resource is not found in the page,
++                                              // app, or any theme specific resource dictionaries)
++)]
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/CakeManagement.Api.csproj b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/CakeManagement.Api.csproj
+new file mode 100644
+index 0000000..afb35c1
+--- /dev/null
++++ b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/CakeManagement.Api.csproj
+@@ -0,0 +1,14 @@
++﻿<Project Sdk="Microsoft.NET.Sdk">
++
++  <PropertyGroup>
++    <OutputType>WinExe</OutputType>
++    <TargetFramework>net5.0-windows</TargetFramework>
++    <UseWPF>true</UseWPF>
++  </PropertyGroup>
++
++  <ItemGroup>
++    <PackageReference Include="AutoMapper" Version="10.1.1" />
++    <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
++  </ItemGroup>
++
++</Project>
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/CakeVM.cs b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/CakeVM.cs
+new file mode 100644
+index 0000000..4839cd2
+--- /dev/null
++++ b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/CakeVM.cs
+@@ -0,0 +1,76 @@
++﻿using GalaSoft.MvvmLight;
++using System;
++using System.Collections.Generic;
++using System.Linq;
++using System.Text;
++using System.Threading.Tasks;
++
++namespace CakeManagement.Api
++{
++    /// <summary>
++    /// This class act as data model for client layer
++    /// </summary>
++    public class CakeVM : ObservableObject
++    {
++        private int id;
++        private string name;
++        private string shape;
++        private int baseprice;
++        private int baker;
++
++        /// <summary>
++        /// Gets or sets the cake ID.
++        /// </summary>
++        public int Id
++        {
++            get { return id; }
++            set { Set(ref id, value); }
++        }
++        /// <summary>
++        /// Gets or sets the cakename.
++        /// </summary>
++        public string Name
++        {
++            get { return name; }
++            set { Set(ref name, value); }
++        }
++        /// <summary>
++        /// Gets or sets the cake name.
++        /// </summary>
++        public string Shape
++        {
++            get { return shape; }
++            set { Set(ref shape, value); }
++        }
++        /// <summary>
++        /// Gets or sets the cake price.
++        /// </summary>
++        public int BasePrice
++        {
++            get { return baseprice; }
++            set { Set(ref baseprice, value); }
++        }
++        /// <summary>
++        /// Gets or sets the baker name.
++        /// </summary>
++        public int Baker
++        {
++            get { return baker; }
++            set { Set(ref baker, value); }
++        }
++        /// <summary>
++        /// This method created the copy of the cake which needs to be edited.
++        /// </summary>
++        /// <param name="other"></param>
++
++        public void CopyFrom(CakeVM other)
++        {
++            if (other == null) return;
++            this.Id = other.Id;
++            this.Name = other.Name;
++            this.Baker = other.Baker;
++            this.BasePrice = other.BasePrice;
++            this.Shape = other.Shape;
++        }
++    }
++}
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/EditorWindow.xaml b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/EditorWindow.xaml
+new file mode 100644
+index 0000000..332000a
+--- /dev/null
++++ b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/EditorWindow.xaml
+@@ -0,0 +1,22 @@
++﻿<Window x:Class="CakeManagement.Api.EditorWindow"
++        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
++        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
++        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
++        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
++        xmlns:local="clr-namespace:CakeManagement.Api"
++        mc:Ignorable="d"
++        Title="EditorWindow" Height="308" Width="287"
++        d:DataContext="{d:DesignInstance Type={x:Type local:CakeVM}}">
++    <Grid>
++        <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
++        <Label Content="Shape" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
++        <Label Content="BasePrice" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
++        <Label Content="Baker" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top"/>
++        <TextBox Text="{Binding Path=Name}" HorizontalAlignment="Left" Height="23" Margin="121,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
++        <TextBox Text="{Binding Path=Shape}" HorizontalAlignment="Left" Height="23" Margin="121,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
++        <TextBox Text="{Binding Path=BasePrice}" HorizontalAlignment="Left" Height="23" Margin="121,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
++        <TextBox Text="{Binding Path=Baker}" HorizontalAlignment="Left" Height="23" Margin="121,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
++        <Button Content="Ok" Width="75" Click="OkClick" Margin="10,213,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
++        <Button Content="Cancel" Width="74" Click="CancelClick"  Margin="150,213,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
++    </Grid>
++</Window>
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/EditorWindow.xaml.cs b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/EditorWindow.xaml.cs
+new file mode 100644
+index 0000000..71aa3b8
+--- /dev/null
++++ b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/EditorWindow.xaml.cs
+@@ -0,0 +1,56 @@
++﻿using System;
++using System.Collections.Generic;
++using System.Linq;
++using System.Text;
++using System.Threading.Tasks;
++using System.Windows;
++using System.Windows.Controls;
++using System.Windows.Data;
++using System.Windows.Documents;
++using System.Windows.Input;
++using System.Windows.Media;
++using System.Windows.Media.Imaging;
++using System.Windows.Shapes;
++
++namespace CakeManagement.Api
++{
++    /// <summary>
++    /// Interaction logic for EditorWindow.xaml
++    /// </summary>
++    public partial class EditorWindow : Window
++    {
++        public EditorWindow()
++        {
++            InitializeComponent();
++        }
++
++        /// <summary>
++        /// Initializes new windiwfor the cakeDb.
++        /// </summary>
++        /// <param name="cake"></param>
++        public EditorWindow(CakeVM cake) : this()
++        {
++            this.DataContext = cake;
++        }
++        /// <summary>
++        /// This method does the clicked.
++        /// </summary>
++        /// <param name="sender">Obj.</param>
++        /// <param name="e">True.</param>
++
++        private void OkClick(object sender, RoutedEventArgs e)
++        {
++            DialogResult = true;
++        }
++        /// <summary>
++        /// This method cancels the the following.
++        /// </summary>
++        /// <param name="sender">Obj.</param>
++        /// <param name="e">False.</param>
++
++        private void CancelClick(object sender, RoutedEventArgs e)
++        {
++            DialogResult = false;
++        }
++    }
++}
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/MainLogic.cs b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/MainLogic.cs
+new file mode 100644
+index 0000000..c19d85a
+--- /dev/null
++++ b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/MainLogic.cs
+@@ -0,0 +1,102 @@
++﻿using GalaSoft.MvvmLight.Messaging;
++using System;
++using System.Collections.Generic;
++using System.Linq;
++using System.Net.Http;
++using System.Text;
++using System.Text.Json;
++using System.Threading.Tasks;
++
++namespace CakeManagement.Api
++{
++    /// <summary>
++    /// This class implements the api methods to apply CRUD operations on cake table.
++    /// </summary>
++    class MainLogic
++    {
++        string url = "https://localhost:5922/CakesApi/";
++        HttpClient client = new HttpClient();
++        JsonSerializerOptions jsonOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
++
++        /// <summary>
++        /// This method sends msgs if it successfully send.
++        /// </summary>
++        /// <param name="success">Bool.</param>
++        void SendMessage(bool success)
++        {
++            string msg = success ? "Operation completed successfully" : "Operation failed";
++            Messenger.Default.Send(msg, "CakeResult");
++        }
++        /// <summary>
++        /// This method gets cakes from api.
++        /// </summary>
++        /// <returns>List of cakes.</returns>
++
++        public List<CakeVM> ApiGetCakes()
++        {
++            string json = client.GetStringAsync(url + "all").Result;
++            var list = JsonSerializer.Deserialize<List<CakeVM>>(json, jsonOptions);
++            return list;
++        }
++        /// <summary>
++        /// This method deletes cake from the database.
++        /// </summary>
++        /// <param name="cake">Cakes.</param>
++
++        public void ApiDelCake(CakeVM cake)
++        {
++            bool success = false;
++            if (cake != null)
++            {
++                string json = client.GetStringAsync(url + "del/" + cake.Id.ToString()).Result;
++                JsonDocument doc = JsonDocument.Parse(json);
++
++                success = doc.RootElement.EnumerateObject().First().Value.GetRawText() == "true";
++            }
++            SendMessage(success);
++        }
++        /// <summary>
++        /// This methods adds or edits cakes in the database.
++        /// </summary>
++        /// <param name="cake">Cake.</param>
++        /// <param name="isEditing">Func.</param>
++        /// <returns></returns>
++        bool ApiEditCake(CakeVM cake, bool isEditing)
++        {
++            if (cake == null) return false;
++            string myUrl = isEditing ? url + "mod" : url + "add";
++
++            Dictionary<string, string> postData = new Dictionary<string, string>();
++            if (isEditing) postData.Add("id", cake.Id.ToString());
++            postData.Add("name", cake.Name);
++            postData.Add("shape", cake.Name);
++            postData.Add("baseprice", cake.BasePrice.ToString());
++            postData.Add("baker", cake.Baker.ToString());
++            string json = client.PostAsync(myUrl, new FormUrlEncodedContent(postData)).
++                Result.Content.ReadAsStringAsync().Result;
++
++            JsonDocument doc = JsonDocument.Parse(json);
++            return doc.RootElement.EnumerateObject().First().Value.GetRawText() == "true";
++        }
++
++        // Alternative: extract editor to interface dependency
++        /// <summary>
++        /// THis methods also edits cakeand check if the msg is sent.
++        /// </summary>
++        /// <param name="cake"></param>
++        /// <param name="editor"></param>
++        public void EditCake(CakeVM cake, Func<CakeVM, bool> editor)
++        {
++            CakeVM clone = new CakeVM();
++            if (cake != null) clone.CopyFrom(cake);
++            bool? success = editor?.Invoke(clone);
++            if (success == true)
++            {
++                if (cake != null) success = ApiEditCake(clone, true);
++                else success = ApiEditCake(clone, false);
++            }
++            SendMessage(success == true);
++        }
++
++    }
++}
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/MainVM.cs b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/MainVM.cs
+new file mode 100644
+index 0000000..90b237f
+--- /dev/null
++++ b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/MainVM.cs
+@@ -0,0 +1,79 @@
++﻿using GalaSoft.MvvmLight;
++using GalaSoft.MvvmLight.Command;
++using System;
++using System.Collections.Generic;
++using System.Collections.ObjectModel;
++using System.Linq;
++using System.Text;
++using System.Threading.Tasks;
++using System.Windows.Input;
++
++namespace CakeManagement.Api
++{
++    /// <summary>
++    /// This is the main viewmodel that handles call the logic to edit UI. 
++    /// </summary>
++    class MainVM : ViewModelBase
++    {
++        private MainLogic logic;
++        private ObservableCollection<CakeVM> allCakes;
++        private CakeVM selectedCake;
++
++        /// <summary>
++        /// Gets or sets the selectedcake of CakeVM.
++        /// </summary>
++        public CakeVM SelectedCake
++        {
++            get { return selectedCake; }
++            set { Set(ref selectedCake, value); }
++        }
++
++        /// <summary>
++        /// Gets or sets allcakes.
++        /// </summary>
++        public ObservableCollection<CakeVM> AllCakes
++        {
++            get { return allCakes; }
++            set { Set(ref allCakes, value); }
++        }
++
++        /// <summary>
++        /// Gets or sets the function.
++        /// </summary>
++        public Func<CakeVM, bool> EditorFunc { get; set; }
++
++        /// <summary>
++        /// Gets or sets the add command.
++        /// </summary>
++        public ICommand AddCmd { get; private set; }
++
++        /// <summary>
++        /// Gets or sets the DelCmd.
++        /// </summary>
++        public ICommand DelCmd { get; private set; }
++
++        /// <summary>
++        /// Gets or sets ModCmd.
++        /// </summary>
++        public ICommand ModCmd { get; private set; }
++
++        /// <summary>
++        /// Gets or sets LoadCmd.
++        /// </summary>
++        public ICommand LoadCmd { get; private set; }
++
++        /// <summary>
++        /// This initializes the instancce of main VM class.
++        /// </summary>
++        public MainVM()
++        {
++            logic = new MainLogic(); // TODO: IoC + Dependency Injection !!!
++
++            LoadCmd = new RelayCommand(() =>
++                    AllCakes = new ObservableCollection<CakeVM>(logic.ApiGetCakes()));
++            DelCmd = new RelayCommand(() => logic.ApiDelCake(selectedCake));
++            AddCmd = new RelayCommand(() => logic.EditCake(null, EditorFunc));
++            ModCmd = new RelayCommand(() => logic.EditCake(selectedCake, EditorFunc));
++        }
++    }
++}
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/MainWindow.xaml b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/MainWindow.xaml
+new file mode 100644
+index 0000000..217fbfd
+--- /dev/null
++++ b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/MainWindow.xaml
+@@ -0,0 +1,20 @@
++﻿<Window x:Class="CakeManagement.Api.MainWindow"
++        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
++        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
++        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
++        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
++        xmlns:local="clr-namespace:CakeManagement.Api"
++        mc:Ignorable="d"
++        Title="MainWindow" Height="443" Width="370">
++    <Window.DataContext>
++        <local:MainVM />
++    </Window.DataContext>
++    <Grid>
++        <DataGrid IsReadOnly="True"  SelectedItem="{Binding Path=SelectedCake}" ItemsSource="{Binding Path=AllCakes}" HorizontalAlignment="Left" Height="362" Margin="10,10,0,0" VerticalAlignment="Top" Width="311"/>
++        <Button Command="{Binding Path=LoadCmd}" Content="LOAD" HorizontalAlignment="Left" Margin="10,377,0,0" VerticalAlignment="Top" Width="74"/>
++        <Button Command="{Binding Path=AddCmd}" Content="ADD" HorizontalAlignment="Left" Margin="89,377,0,0" VerticalAlignment="Top" Width="74"/>
++        <Button Command="{Binding Path=ModCmd}" Content="MOD" HorizontalAlignment="Left" Margin="168,377,0,0" VerticalAlignment="Top" Width="74"/>
++        <Button Command="{Binding Path=DelCmd}" Content="DEL" HorizontalAlignment="Left" Margin="247,377,0,0" VerticalAlignment="Top" Width="74"/>
++
++    </Grid>
++</Window>
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/MainWindow.xaml.cs b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/MainWindow.xaml.cs
+new file mode 100644
+index 0000000..e1bd0c5
+--- /dev/null
++++ b/oenik_prog3_2020_2_d3sgxj/CakeManagement.Api/MainWindow.xaml.cs
+@@ -0,0 +1,50 @@
++﻿using GalaSoft.MvvmLight.Messaging;
++using System;
++using System.Collections.Generic;
++using System.Linq;
++using System.Text;
++using System.Threading.Tasks;
++using System.Windows;
++using System.Windows.Controls;
++using System.Windows.Data;
++using System.Windows.Documents;
++using System.Windows.Input;
++using System.Windows.Media;
++using System.Windows.Media.Imaging;
++using System.Windows.Navigation;
++using System.Windows.Shapes;
++
++namespace CakeManagement.Api
++{
++    /// <summary>
++    /// Interaction logic for MainWindow.xaml
++    /// </summary>
++    public partial class MainWindow : Window
++    {
++        /// <summary>
++        /// Initializes a new instance of the <see cref="MainWindow"/> class.
++        /// </summary>
++        public MainWindow()
++        {
++            InitializeComponent();
++        }
++
++        private void Window_Loaded(object sender, RoutedEventArgs e)
++        {
++            Messenger.Default.Register<string>(this, "CakeResult", msg => {
++                (DataContext as MainVM).LoadCmd.Execute(null);
++                MessageBox.Show(msg);
++            });
++
++            (DataContext as MainVM).EditorFunc = (car) => {
++                EditorWindow win = new EditorWindow(car);
++                return (win.ShowDialog() == true);
++            };
++        }
++
++        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
++        {
++            Messenger.Default.Unregister(this);
++        }
++    }
++}
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeManagementApp/UI/EditorWindow.xaml b/oenik_prog3_2020_2_d3sgxj/CakeManagementApp/UI/EditorWindow.xaml
+index b23bfee..35fcf35 100644
+--- a/oenik_prog3_2020_2_d3sgxj/CakeManagementApp/UI/EditorWindow.xaml
++++ b/oenik_prog3_2020_2_d3sgxj/CakeManagementApp/UI/EditorWindow.xaml
+@@ -17,7 +17,7 @@
+         <TextBox Text="{Binding Path=Baker.Name}" HorizontalAlignment="Left" Height="23" Margin="121,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+         <TextBox Text="{Binding Path=Baker.Salary}" HorizontalAlignment="Left" Height="23" Margin="121,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+         <TextBox Text="{Binding Path=Baker.Position}" HorizontalAlignment="Left" Height="23" Margin="121,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+-        <TextBox Text="{Binding Path=Baker.Workhours}" HorizontalAlignment="Left" Height="23" Margin="121,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
++        <TextBox Text="{Binding Path=Baker.WorkHours}" HorizontalAlignment="Left" Height="23" Margin="121,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+         <Button Content="Ok" Width="75" Click="OkClick" Margin="10,213,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+         <Button Content="Cancel" Width="74" Click="CancelCLick"  Margin="0,213,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+     </Grid>
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/CakeShopWeb.xml b/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/CakeShopWeb.xml
+index b565006..b3dbf1d 100644
+--- a/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/CakeShopWeb.xml
++++ b/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/CakeShopWeb.xml
+@@ -9,6 +9,45 @@
+             This is the internal class CakeLogic.
+             </summary>
+         </member>
++        <member name="T:CakeShopWeb.Controllers.CakesApiController">
++            <summary>
++            This class is used to apply the CRUD operations on cake table through the api.
++            </summary>
++        </member>
++        <member name="M:CakeShopWeb.Controllers.CakesApiController.#ctor(CakeShopWeb.Controllers.ICakeLogic,AutoMapper.IMapper)">
++            <summary>
++            Initializes a new instance of the <see cref="T:CakeShopWeb.Controllers.CakesApiController"/> class.
++            </summary>
++            <param name="logic">FactoryLogic.</param>
++            <param name="mapper">IMapper.</param>
++        </member>
++        <member name="M:CakeShopWeb.Controllers.CakesApiController.GetAll">
++            <summary>
++            This method gets all cakes form the database.
++            </summary>
++            <returns>IEnumerable.</returns>
++        </member>
++        <member name="M:CakeShopWeb.Controllers.CakesApiController.DelOneCake(System.Int32)">
++            <summary>
++            This method deleets the cakes from the databae.
++            </summary>
++            <param name="id">CakeId.</param>
++            <returns>ApiResult.</returns>
++        </member>
++        <member name="M:CakeShopWeb.Controllers.CakesApiController.AddOneCake(CakeShopWeb.Models.Cake)">
++            <summary>
++            This method adds the cake to the dataabse.
++            </summary>
++            <param name="cake">Cake.</param>
++            <returns>ApiResult.</returns>
++        </member>
++        <member name="M:CakeShopWeb.Controllers.CakesApiController.ModOneCake(CakeShopWeb.Models.Cake)">
++            <summary>
++            This method edits one cake.
++            </summary>
++            <param name="cake">Cake.</param>
++            <returns>ApiResult.</returns>
++        </member>
+         <member name="T:CakeShopWeb.Controllers.CakesController">
+             <summary>
+             CakesController class inheriting from Controller.
+@@ -106,6 +145,46 @@
+             <param name="id">Id.</param>
+             <returns>Cake.</returns>
+         </member>
++        <member name="M:CakeShopWeb.Controllers.ICakeLogic.RemoveCake(System.Int32)">
++            <summary>
++            This method removes cake based on id.
++            </summary>
++            <param name="id">Cake.</param>
++            <returns>Bool.</returns>
++        </member>
++        <member name="M:CakeShopWeb.Controllers.ICakeLogic.AddCake(System.String,System.String,System.Int32,System.String,System.Int32,System.Int32)">
++            <summary>
++            This method adds cake.
++            </summary>
++            <param name="name">Name.</param>
++            <param name="shape">shape.</param>
++            <param name="basePrice">price.</param>
++            <param name="color">colcor.</param>
++            <param name="baker">baker.</param>
++            <param name="id">cakeid.</param>
++        </member>
++        <member name="M:CakeShopWeb.Controllers.ICakeLogic.ChangeCake(System.Int32,System.Int32,System.String,System.Int32,System.String,System.String)">
++            <summary>
++            This method edits the cake.
++            </summary>
++            <param name="baker">baker.</param>
++            <param name="basePrice">price.</param>
++            <param name="color">color.</param>
++            <param name="id">id.</param>
++            <param name="name">name.</param>
++            <param name="shape">shape.</param>
++            <returns>Cake.</returns>
++        </member>
++        <member name="T:CakeShopWeb.Models.ApiResult">
++            <summary>
++            Class to store the result of the query.
++            </summary>
++        </member>
++        <member name="P:CakeShopWeb.Models.ApiResult.OperationResult">
++            <summary>
++            Gets or sets a value indicating whether query was succesful.
++            </summary>
++        </member>
+         <member name="T:CakeShopWeb.Models.Cake">
+             <summary>
+             This is the Cake class with the cake fields.
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/Controllers/CakesApiController.cs b/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/Controllers/CakesApiController.cs
+new file mode 100644
+index 0000000..0c84921
+--- /dev/null
++++ b/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/Controllers/CakesApiController.cs
+@@ -0,0 +1,93 @@
++﻿using AutoMapper;
++using CakeShopWeb.Models;
++using Microsoft.AspNetCore.Mvc;
++using System;
++using System.Collections.Generic;
++using System.Linq;
++using System.Threading.Tasks;
++
++namespace CakeShopWeb.Controllers
++{
++    /// <summary>
++    /// This class is used to apply the CRUD operations on cake table through the api.
++    /// </summary>
++    public class CakesApiController : Controller
++    {
++        private ICakeLogic logic;
++        private IMapper mapper;
++
++        /// <summary>
++        /// Initializes a new instance of the <see cref="CakesApiController"/> class.
++        /// </summary>
++        /// <param name="logic">FactoryLogic.</param>
++        /// <param name="mapper">IMapper.</param>
++        public CakesApiController(ICakeLogic logic, IMapper mapper)
++        {
++            this.logic = logic;
++            this.mapper = mapper;
++        }
++
++        // GET CakesApi/all
++        /// <summary>
++        /// This method gets all cakes form the database.
++        /// </summary>
++        /// <returns>IEnumerable.</returns>
++        [HttpGet]
++        [ActionName("all")]
++        public IEnumerable<Models.Cake> GetAll()
++        {
++            var cakes = logic.GetAllCakes();
++            return mapper.Map<IList<CakeShop.Data.Cake>, List<Models.Cake>>((IList<CakeShop.Data.Cake>)cakes);
++        }
++
++        // Get CakesApi/del
++        /// <summary>
++        /// This method deleets the cakes from the databae.
++        /// </summary>
++        /// <param name="id">CakeId.</param>
++        /// <returns>ApiResult.</returns>
++        [HttpGet]
++        [ActionName("del")]
++        public ApiResult DelOneCake(int id)
++        {
++            return new ApiResult() { OperationResult = logic.RemoveCake(id) };
++        }
++
++        // POST CakesApi/add +1 cake in the POST
++        /// <summary>
++        /// This method adds the cake to the dataabse.
++        /// </summary>
++        /// <param name="cake">Cake.</param>
++        /// <returns>ApiResult.</returns>
++        [HttpPost]
++        [ActionName("add")]
++        public ApiResult AddOneCake(Models.Cake cake)
++        {
++            bool success = true;
++            try
++            {
++                logic.AddCake(cake.Name, cake.Shape, cake.BasePrice, cake.Color, cake.Baker, cake.Id);
++            }
++            catch (ArgumentException)
++            {
++                success = false;
++            }
++
++            return new ApiResult() { OperationResult = success };
++        }
++
++        // POST CakesApi/mod +1 cake in the POST
++        /// <summary>
++        /// This method edits one cake.
++        /// </summary>
++        /// <param name="cake">Cake.</param>
++        /// <returns>ApiResult.</returns>
++        [HttpPost]
++        [ActionName("mod")]
++        public ApiResult ModOneCake(Models.Cake cake)
++        {
++            return new ApiResult() { OperationResult = logic.ChangeCake(cake.Baker, cake.BasePrice, cake.Color, cake.Id, cake.Name, cake.Shape) };
++        }
++
++    }
++}
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/Controllers/ICakeLogic.cs b/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/Controllers/ICakeLogic.cs
+index 619a801..b418237 100644
+--- a/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/Controllers/ICakeLogic.cs
++++ b/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/Controllers/ICakeLogic.cs
+@@ -18,5 +18,34 @@ namespace CakeShopWeb.Controllers
+         /// <param name="id">Id.</param>
+         /// <returns>Cake.</returns>
+         Cake GetOneCake(int id);
++
++        /// <summary>
++        /// This method removes cake based on id.
++        /// </summary>
++        /// <param name="id">Cake.</param>
++        /// <returns>Bool.</returns>
++        bool RemoveCake(int id);
++
++        /// <summary>
++        /// This method adds cake.
++        /// </summary>
++        /// <param name="name">Name.</param>
++        /// <param name="shape">shape.</param>
++        /// <param name="basePrice">price.</param>
++        /// <param name="color">colcor.</param>
++        /// <param name="baker">baker.</param>
++        /// <param name="id">cakeid.</param>
++        void AddCake(string name, string shape, int basePrice, string color, int baker, int id);
++        /// <summary>
++        /// This method edits the cake.
++        /// </summary>
++        /// <param name="baker">baker.</param>
++        /// <param name="basePrice">price.</param>
++        /// <param name="color">color.</param>
++        /// <param name="id">id.</param>
++        /// <param name="name">name.</param>
++        /// <param name="shape">shape.</param>
++        /// <returns>Cake.</returns>
++        bool ChangeCake(int baker, int basePrice, string color, int id, string name, string shape);
+     }
+ }
+\ No newline at end of file
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/Models/ApiResult.cs b/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/Models/ApiResult.cs
+new file mode 100644
+index 0000000..c22d393
+--- /dev/null
++++ b/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/Models/ApiResult.cs
+@@ -0,0 +1,18 @@
++﻿using System;
++using System.Collections.Generic;
++using System.Linq;
++using System.Threading.Tasks;
++
++namespace CakeShopWeb.Models
++{
++    /// <summary>
++    /// Class to store the result of the query.
++    /// </summary>
++    public class ApiResult
++    {
++        /// <summary>
++        /// Gets or sets a value indicating whether query was succesful.
++        /// </summary>
++        public bool OperationResult { get; set; }
++    }
++}
+diff --git a/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/Views/Home/Index.cshtml b/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/Views/Home/Index.cshtml
+index d2d19bd..c8c7a77 100644
+--- a/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/Views/Home/Index.cshtml
++++ b/oenik_prog3_2020_2_d3sgxj/CakeShopWeb/Views/Home/Index.cshtml
+@@ -6,3 +6,5 @@
+     <h1 class="display-4">Welcome</h1>
+     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+ </div>
++
++
+diff --git a/oenik_prog3_2020_2_d3sgxj/oenik_prog3_2020_2_d3sgxj.sln b/oenik_prog3_2020_2_d3sgxj/oenik_prog3_2020_2_d3sgxj.sln
+index 05c5b63..df08d78 100644
+--- a/oenik_prog3_2020_2_d3sgxj/oenik_prog3_2020_2_d3sgxj.sln
++++ b/oenik_prog3_2020_2_d3sgxj/oenik_prog3_2020_2_d3sgxj.sln
+@@ -16,7 +16,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution
+ 		.editorconfig = .editorconfig
+ 	EndProjectSection
+ EndProject
+-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeShopWeb", "CakeShopWeb\CakeShopWeb.csproj", "{CDFBC086-47C6-4A4A-80F0-FFF851556750}"
++Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeShopWeb", "CakeShopWeb\CakeShopWeb.csproj", "{CDFBC086-47C6-4A4A-80F0-FFF851556750}"
++EndProject
++Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeManagement.Api", "CakeManagement.Api\CakeManagement.Api.csproj", "{0536B407-FEE7-4BC3-A3D7-815D24E36EDD}"
+ EndProject
+ Global
+ 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+@@ -44,6 +46,10 @@ Global
+ 		{CDFBC086-47C6-4A4A-80F0-FFF851556750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+ 		{CDFBC086-47C6-4A4A-80F0-FFF851556750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+ 		{CDFBC086-47C6-4A4A-80F0-FFF851556750}.Release|Any CPU.Build.0 = Release|Any CPU
++		{0536B407-FEE7-4BC3-A3D7-815D24E36EDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
++		{0536B407-FEE7-4BC3-A3D7-815D24E36EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
++		{0536B407-FEE7-4BC3-A3D7-815D24E36EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
++		{0536B407-FEE7-4BC3-A3D7-815D24E36EDD}.Release|Any CPU.Build.0 = Release|Any CPU
+ 	EndGlobalSection
+ 	GlobalSection(SolutionProperties) = preSolution
+ 		HideSolutionNode = FALSE

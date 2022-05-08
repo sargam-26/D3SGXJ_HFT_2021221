@@ -1,0 +1,314 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CakeShop.Repository</name>
+    </assembly>
+    <members>
+        <member name="T:CakeShop.Repository.AppRepo`1">
+            <summary>
+            This is a class with particular data.
+            </summary>
+            <typeparam name="T">T.</typeparam>
+        </member>
+        <member name="F:CakeShop.Repository.AppRepo`1.ctx">
+            <summary>
+            DbContext instance.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Repository.AppRepo`1.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeShop.Repository.AppRepo`1"/> class.
+            </summary>
+            <param name="ctx">DbContext.</param>
+        </member>
+        <member name="M:CakeShop.Repository.AppRepo`1.Add(`0)">
+            <summary>
+            This is an abstarct method with no body havinf a particular info about data.
+            </summary>
+            <param name="entity">T.</param>
+            <returns>int.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.AppRepo`1.GetAll">
+            <summary>
+            This is method returns the data of database of a specific table.
+            </summary>
+            <returns>IQueryable.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.AppRepo`1.GetOne(System.Int32)">
+            <summary>
+            This method retuens the particular class with data.
+            </summary>
+            <param name="id">id.</param>
+            <returns>T.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.AppRepo`1.Remove(System.Int32)">
+            <summary>
+            This method returns whether the data is been removed.
+            </summary>
+            <param name="id">id.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.AppRepo`1.Remove(`0)">
+            <summary>
+            This method removes the data with any specific class.
+            </summary>
+            <param name="data">General data input.</param>
+            <returns>Bool.</returns>
+        </member>
+        <member name="T:CakeShop.Repository.BakerRepository">
+            <summary>
+            THis class stores the query related to baker table.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Repository.BakerRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeShop.Repository.BakerRepository"/> class.
+            </summary>
+            <param name="ctx">DbCOntext.</param>
+        </member>
+        <member name="M:CakeShop.Repository.BakerRepository.Add(CakeShop.Data.Baker)">
+            <summary>
+            This method adds the baker data to the baker table.
+            </summary>
+            <param name="entity">Baker.</param>
+            <returns>int.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.BakerRepository.EditBaker(System.Int32,CakeShop.Data.Baker)">
+            <summary>
+            this method edits baker with a paticular id.
+            </summary>
+            <param name="id">bakerId.</param>
+            <param name="bakerModified">Baker.</param>
+        </member>
+        <member name="M:CakeShop.Repository.BakerRepository.GetOne(System.Int32)">
+            <summary>
+            This method returns the Baker with the particular Id.
+            </summary>
+            <param name="id">Baker Id.</param>
+            <returns>Baker.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.BakerRepository.UpdateSalary(System.Int32,System.Int32)">
+            <summary>
+            This method updates the salary of the baker in the baker database.
+            </summary>
+            <param name="bakerId">BakerId.</param>
+            <param name="salary">Salary.</param>
+        </member>
+        <member name="T:CakeShop.Repository.CakeRepository">
+            <summary>
+            This class stores the query related to the cake table.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Repository.CakeRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeShop.Repository.CakeRepository"/> class.
+            </summary>
+            <param name="ctx">DbContext.</param>
+        </member>
+        <member name="M:CakeShop.Repository.CakeRepository.Add(CakeShop.Data.Cake)">
+            <summary>
+            This method adds the cake data to the table.
+            </summary>
+            <param name="entity">Cake.</param>
+            <returns>int.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.CakeRepository.UpdateCakeShape(System.Int32,System.String)">
+            <summary>
+            This method updates the cake shape in the database.
+            </summary>
+            <param name="cakeId">cakeId.</param>
+            <param name="shape">Shape.</param>
+        </member>
+        <member name="M:CakeShop.Repository.CakeRepository.UpdateCake(System.Int32,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            This method updates the cake info.
+            </summary>
+            <param name="cakeId">cake.</param>
+            <param name="name">cake name.</param>
+            <param name="shape">cake shape.</param>
+            <param name="color">cake color.</param>
+            <param name="bakerId">cake bakerid.</param>
+            <param name="basePrice">cake price.</param>
+        </member>
+        <member name="M:CakeShop.Repository.CakeRepository.GetOne(System.Int32)">
+            <summary>
+            This method gets an id as parameter and shows all related cakes.
+            </summary>
+            <param name="id">id.</param>
+            <returns>cake.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.CakeRepository.Search(System.String)">
+            <summary>
+            This method search the cake from the list.
+            </summary>
+            <param name="name">Cake.</param>
+            <returns>Cakeobj.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.CakeRepository.RandomCake">
+            <summary>
+            This is the random cake methjod, takes the fields and put inot an array.
+            </summary>
+            <returns>Cake.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.CakeRepository.Select(System.Int32)">
+            <summary>
+            This methos selects the cake.
+            </summary>
+            <param name="id">Id.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.CakeRepository.UnSelect(System.Int32)">
+            <summary>
+            This method unselects the cake.
+            </summary>
+            <param name="id">Id.</param>
+            <returns>Bool.</returns>
+        </member>
+        <member name="T:CakeShop.Repository.DeliveryRepository">
+            <summary>
+            This class stores the query related to the delivery table.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Repository.DeliveryRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeShop.Repository.DeliveryRepository"/> class.
+            </summary>
+            <param name="ctx">DbContext.</param>
+        </member>
+        <member name="M:CakeShop.Repository.DeliveryRepository.Add(CakeShop.Data.Delivery)">
+            <summary>
+            This methods adds the delivery data to the delivery table.
+            </summary>
+            <param name="entity">entity.</param>
+            <returns>int.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.DeliveryRepository.GetOne(System.Int32)">
+            <summary>
+            This method returns the delivery man witht he particular id.
+            </summary>
+            <param name="id">id.</param>
+            <returns>Delivery.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.DeliveryRepository.UpdateDeliveryPersonName(System.Int32,System.String)">
+            <summary>
+            This method updates the name of the delivery man.
+            </summary>
+            <param name="deliveryId">id.</param>
+            <param name="name">name.</param>
+        </member>
+        <member name="T:CakeShop.Repository.IBakerRepository">
+            <summary>
+            It interface stores the info about baker from the table.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Repository.IBakerRepository.UpdateSalary(System.Int32,System.Int32)">
+            <summary>
+            This method updates the salary of the baker.
+            </summary>
+            <param name="bakerId">bakets Id.</param>
+            <param name="salary">new salary.</param>
+        </member>
+        <member name="M:CakeShop.Repository.IBakerRepository.EditBaker(System.Int32,CakeShop.Data.Baker)">
+            <summary>
+            this method edits the baker with his id.
+            </summary>
+            <param name="id">bakerId.</param>
+            <param name="bakerModified">Modifiedbaker.</param>
+        </member>
+        <member name="T:CakeShop.Repository.ICakeRepository">
+            <summary>
+            This interface stores the info about cake table.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Repository.ICakeRepository.UpdateCakeShape(System.Int32,System.String)">
+            <summary>
+            This method updates the cake shape upon two given arguments.
+            </summary>
+            <param name="cakeId">cakeId of the cake.</param>
+            <param name="shape">changes shape.</param>
+        </member>
+        <member name="M:CakeShop.Repository.ICakeRepository.UpdateCake(System.Int32,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            this method updates the cake.
+            </summary>
+            <param name="cakeId">Id.</param>
+            <param name="name">Cake obj.</param>
+            <param name="shape">Cake shape.</param>
+            <param name="color">cake color.</param>
+            <param name="bakerId">cake bakerid.</param>
+            <param name="basePrice">cake price.</param>
+        </member>
+        <member name="M:CakeShop.Repository.ICakeRepository.RandomCake">
+            <summary>
+            This is random cake method.
+            </summary>
+            <returns>Cake.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.ICakeRepository.Search(System.String)">
+            <summary>
+            This method search the cake from the databse.
+            </summary>
+            <param name="name">name.</param>
+            <returns>cake.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.ICakeRepository.Select(System.Int32)">
+            <summary>
+            This method selectes if the id is selected or not.
+            </summary>
+            <param name="id">Id.</param>
+            <returns>Bool.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.ICakeRepository.UnSelect(System.Int32)">
+            <summary>
+            This method unselects the id.
+            </summary>
+            <param name="id">Id.</param>
+            <returns>Bool.</returns>
+        </member>
+        <member name="T:CakeShop.Repository.IDeliveryRepository">
+            <summary>
+            This interface stores the info about the delivery table and has a updatemethod.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Repository.IDeliveryRepository.UpdateDeliveryPersonName(System.Int32,System.String)">
+            <summary>
+            This method updates the name of the delivery person.
+            </summary>
+            <param name="deliveryId">Id of delivery man.</param>
+            <param name="name">updates name.</param>
+        </member>
+        <member name="T:CakeShop.Repository.IRepository`1">
+            <summary>
+            This is a general interface for a specific class.
+            </summary>
+            <typeparam name="T">class.</typeparam>
+        </member>
+        <member name="M:CakeShop.Repository.IRepository`1.GetAll">
+            <summary>
+            This method returns the data available in the particular table.
+            </summary>
+            <returns>General class.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.IRepository`1.GetOne(System.Int32)">
+            <summary>
+            Gets the general id from the particular class.
+            </summary>
+            <param name="id">id.</param>
+            <returns>class.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.IRepository`1.Add(`0)">
+            <summary>
+            This method adds new entity.
+            </summary>
+            <param name="entity">General.</param>
+            <returns>class.</returns>
+        </member>
+        <member name="M:CakeShop.Repository.IRepository`1.Remove(System.Int32)">
+            <summary>
+            Thismethod removes the id from the paticular class.
+            </summary>
+            <param name="id">id.</param>
+            <returns>bool.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,40 @@
+﻿// This file is used by Code Analysis to maintain SuppressMessage
+// attributes that are applied to this project.
+// Project-level suppressions either have no target or are given
+// a specific target and scoped to a namespace, type, member, etc.
+
+using System.Diagnostics.CodeAnalysis;
+
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1633:File should have header")]
+[assembly: SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1404:Code analysis suppression should have justification")]
+[assembly: SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1101:Prefix local calls with this")]
+[assembly: SuppressMessage("Build", "CA1014:Mark assemblies with CLSCompliant")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1200:Using directives should be placed correctly")]
+[assembly: SuppressMessage("StyleCop.CSharp.LayoutRules", "SA1514:Element documentation header should be preceded by blank line")]
+[assembly: SuppressMessage("StyleCop.CSharp.LayoutRules", "SA1516:Elements should be separated by blank line")]
+[assembly: SuppressMessage("Usage", "CA2201:Do not raise reserved exception types")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1208:System using directives should be placed before other using directives")]
+[assembly: SuppressMessage("StyleCop.CSharp.LayoutRules", "SA1508:Closing braces should not be preceded by blank line")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1629:Documentation text should end with a period")]
+[assembly: SuppressMessage("Build", "CA1812")]
+[assembly: SuppressMessage("StyleCop.CSharp.LayoutRules", "SA1505:Opening braces should not be followed by blank line")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1201:Elements should appear in the correct order")]
+[assembly: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:Field names should not contain underscore")]
+[assembly: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1306:Field names should begin with lower-case letter")]
+[assembly: SuppressMessage("Design", "CA1062:Validate arguments of public methods")]
+[assembly: SuppressMessage("Performance", "CA1822:Mark members as static")]
+[assembly: SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1128:Put constructor initializers on their own line")]
+[assembly: SuppressMessage("Performance", "CA1819:Properties should not return arrays")]
+[assembly: SuppressMessage("Design", "CA1040:Avoid empty interfaces")]
+[assembly: SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1413:Use trailing comma in multi-line initializers")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1602:Enumeration items should be documented")]
+[assembly: SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1401:Fields should be private")]
+[assembly: SuppressMessage("StyleCop.CSharp.LayoutRules", "SA1502:Element should not be on a single line")]
+[assembly: SuppressMessage("Design", "CA1051:Do not declare visible instance fields")]
+[assembly: SuppressMessage("Design", "CA1010:Generic interface should also be implemented")]
+[assembly: SuppressMessage("Design", "CA1002:Do not expose generic lists")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1204:Static elements should appear before instance elements")]
+[assembly: SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix")]
+[assembly: SuppressMessage("Security", "CA5394:Do not use insecure randomness")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1202:Elements should be ordered by access")]
+[assembly: SuppressMessage("Usage", "CA2227:Collection properties should be read only")]

@@ -1,0 +1,573 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CakeShop.Logic</name>
+    </assembly>
+    <members>
+        <member name="T:CakeShop.Logic.AdminManagement">
+            <summary>
+            This class stores the method for admin management.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Logic.AdminManagement.#ctor(CakeShop.Repository.ICakeRepository,CakeShop.Repository.IDeliveryRepository,CakeShop.Repository.IBakerRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeShop.Logic.AdminManagement"/> class.
+            </summary>
+            <param name="cakeRepo">cakeRepo.</param>
+            <param name="deliveryRepository">IDeliveryRepository.</param>
+            <param name="bakerRepository">bakerRepository.</param>
+        </member>
+        <member name="M:CakeShop.Logic.AdminManagement.CakesDeliveries">
+            <summary>
+            This lists all the cake deliveries.
+            </summary>
+            <returns>ILIst.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.AdminManagement.GetBakerCakePriceAverage">
+            <summary>
+            This lists the returns bakers cake price average.
+            </summary>
+            <returns>ListofAvergaeResulsts.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.AdminManagement.TotalIncomeByBaker">
+            <summary>
+            This lists the total income earned by the baker.
+            </summary>
+            <returns>Lists income by baker.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.AdminManagement.RemoveBaker(System.Int32)">
+            <summary>
+            This method returns true or false if the baker is removed.
+            </summary>
+            <param name="id">id.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.AdminManagement.RemoveCake(System.Int32)">
+            <summary>
+            this method returns if cake is removed from the database.
+            </summary>
+            <param name="id">int id.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.AdminManagement.RemoveDelivery(System.Int32)">
+            <summary>
+            This methods checks if the delivery is removed from dtabase.
+            </summary>
+            <param name="id">id.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.AdminManagement.UpdateBakerSalary(System.Int32,System.Int32)">
+            <summary>
+            This method updates the slary of the baker based on bakerid.
+            </summary>
+            <param name="bakerId">id.</param>
+            <param name="salary">salary.</param>
+        </member>
+        <member name="M:CakeShop.Logic.AdminManagement.GetOne">
+            <summary>
+            This method gets one cake from the databse.
+            </summary>
+            <returns>Cakes.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.AdminManagement.SelectCake(System.Int32)">
+            <summary>
+            This method selecte the cake.
+            </summary>
+            <param name="id">Id.</param>
+            <returns>Bool.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.AdminManagement.UnSelectCake(System.Int32)">
+            <summary>
+            This method unselects the cake based on id.
+            </summary>
+            <param name="id">Id.</param>
+            <returns>Bool.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.AdminManagement.SelectedGuests">
+            <summary>
+            This method shows Guests.
+            </summary>
+            <returns>CakeList.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.AdminManagement.UnSelectedGuests">
+            <summary>
+            This method unselects the guests.
+            </summary>
+            <returns>Cakelist.</returns>
+        </member>
+        <member name="T:CakeShop.Logic.AveragesResult">
+            <summary>
+            This class shows the datafield of the avergae.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Logic.AveragesResult.BakerName">
+            <summary>
+            gets or sets the baker name.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Logic.AveragesResult.AveragePrice">
+            <summary>
+            gets or sets the average price.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Logic.AveragesResult.ToString">
+            <summary>
+            This methods converts the class into string.
+            </summary>
+            <returns>string.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.AveragesResult.Equals(System.Object)">
+            <summary>
+            This method override the equals.
+            </summary>
+            <param name="obj">object.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.AveragesResult.GetHashCode">
+            <summary>
+            This method oveerides the hashcode.
+            </summary>
+            <returns>int.</returns>
+        </member>
+        <member name="T:CakeShop.Logic.BakerLogic">
+            <summary>
+            BakerLogic class inherits fromm IbakerLogic implements methods.
+            </summary>
+        </member>
+        <member name="T:CakeShop.Logic.CakesDelivery">
+            <summary>
+            This shows the datafield of the cakes delivery from database.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Logic.CakesDelivery.Person">
+            <summary>
+            gets or sets the person name.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Logic.CakesDelivery.Cakes">
+            <summary>
+            Gets or sets the cake name.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Logic.CakesDelivery.Equals(System.Object)">
+            <summary>
+            This method overrides the equals methd.
+            </summary>
+            <param name="obj">object.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.CakesDelivery.GetHashCode">
+            <summary>
+            this method overrides the hashcode.
+            </summary>
+            <returns>int.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.CakesDelivery.ToString">
+            <summary>
+            This method converts the class into string.
+            </summary>
+            <returns>String.</returns>
+        </member>
+        <member name="T:CakeShop.Logic.IAdminManagement">
+            <summary>
+            The interface keeps all the methods to be implemented in the Admin class.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Logic.IAdminManagement.RemoveBaker(System.Int32)">
+            <summary>
+            This method checks if it removes the baker based on the id.
+            </summary>
+            <param name="id">int id.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IAdminManagement.RemoveCake(System.Int32)">
+            <summary>
+            this method sees if the cake is removed from the database from its id.
+            </summary>
+            <param name="id">int id.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IAdminManagement.RemoveDelivery(System.Int32)">
+            <summary>
+            This method checks if the delivery is deketed from the database or not.
+            </summary>
+            <param name="id">int id.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IAdminManagement.UpdateBakerSalary(System.Int32,System.Int32)">
+            <summary>
+            This method updates the bakrsalary.
+            </summary>
+            <param name="bakerId">bakerid.</param>
+            <param name="salary">int salary.</param>
+        </member>
+        <member name="M:CakeShop.Logic.IAdminManagement.GetBakerCakePriceAverage">
+            <summary>
+            this lists the baker's average cake price result.
+            </summary>
+            <returns>List of Average price.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IAdminManagement.CakesDeliveries">
+            <summary>
+            This lists the cakes been delivered.
+            </summary>
+            <returns>Lists of cake deliveries.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IAdminManagement.TotalIncomeByBaker">
+            <summary>
+            this lists the income earned by the baker.
+            </summary>
+            <returns>lists of income by baker.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IAdminManagement.GetOne">
+            <summary>
+            Gets one cake.
+            </summary>
+            <returns>Cake.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IAdminManagement.SelectCake(System.Int32)">
+            <summary>
+            This method selects one cake.
+            </summary>
+            <param name="id">Id.</param>
+            <returns>Bool.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IAdminManagement.UnSelectCake(System.Int32)">
+            <summary>
+            This method unselects onr cake.
+            </summary>
+            <param name="id">Id.</param>
+            <returns>Bool.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IAdminManagement.UnSelectedGuests">
+            <summary>
+            This method unselects the guests.
+            </summary>
+            <returns>CakeList.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IAdminManagement.SelectedGuests">
+            <summary>
+            This method selevcts the guests.
+            </summary>
+            <returns>cakeList.</returns>
+        </member>
+        <member name="T:CakeShop.Logic.IBakerLogic">
+            <summary>
+            This is IBakerLogic interface with methods.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Logic.IBakerLogic.EditBaker(CakeShop.Data.Baker)">
+            <summary>
+            EditBaker method.
+            </summary>
+            <param name="baker">Baker.</param>
+        </member>
+        <member name="M:CakeShop.Logic.IBakerLogic.Add(System.Collections.Generic.IList{CakeShop.Data.Baker})">
+            <summary>
+            Adds list of bakers.
+            </summary>
+            <param name="bakerList">Bakers.</param>
+        </member>
+        <member name="M:CakeShop.Logic.IBakerLogic.Delete(System.Collections.Generic.IList{CakeShop.Data.Baker},CakeShop.Data.Baker)">
+            <summary>
+            Deletes Baker.
+            </summary>
+            <param name="bakerList">Baker obj.</param>
+            <param name="baker">Baker.</param>
+        </member>
+        <member name="M:CakeShop.Logic.IBakerLogic.GetAllBakers">
+            <summary>
+            This method Gets All Bakers.
+            </summary>
+            <returns>List.</returns>
+        </member>
+        <member name="T:CakeShop.Logic.IEditorService">
+            <summary>
+            IEditorService interface.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Logic.IEditorService.EditBaker(CakeShop.Data.Baker)">
+            <summary>
+            EditBaker method.
+            </summary>
+            <param name="baker">Baker.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="T:CakeShop.Logic.IncomeByBaker">
+            <summary>
+            This class contains the datafields of the baker.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Logic.IncomeByBaker.BakerName">
+            <summary>
+            gets or sets the bakername.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Logic.IncomeByBaker.Income">
+            <summary>
+            gets or sets the baker income.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Logic.IncomeByBaker.ToString">
+            <summary>
+            converts the class into the string.
+            </summary>
+            <returns>sting.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IncomeByBaker.Equals(System.Object)">
+            <summary>
+            this method override the equals method.
+            </summary>
+            <param name="obj">object.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IncomeByBaker.GetHashCode">
+            <summary>
+            this method overrides the gethashcode.
+            </summary>
+            <returns>bool.</returns>
+        </member>
+        <member name="T:CakeShop.Logic.IOrderManagement">
+            <summary>
+            this interface stores the method to be implemented in the OrderManagement  class.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Logic.IOrderManagement.GetAllCakes">
+            <summary>
+            this lists all the cakes from the database.
+            </summary>
+            <returns>lists the cakes.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IOrderManagement.GetCakeInfo(System.Int32)">
+            <summary>
+            This gets the cake info upon cake id.
+            </summary>
+            <param name="cakeId">cakeid.</param>
+            <returns>Cake.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IOrderManagement.UpdateCakeShape(System.Int32,System.String)">
+            <summary>
+            this method updates the cake shape upon id.
+            </summary>
+            <param name="cakeId">cakeid.</param>
+            <param name="shape">shape.</param>
+        </member>
+        <member name="M:CakeShop.Logic.IOrderManagement.UpdateCake(System.Int32,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            This method updates the cake info.
+            </summary>
+            <param name="cakeId">cake obj.</param>
+            <param name="name">cake name.</param>
+            <param name="shape">cake shape.</param>
+            <param name="color">cake color.</param>
+            <param name="bakerId">cake bakerid.</param>
+            <param name="basePrice">cake price.</param>
+        </member>
+        <member name="M:CakeShop.Logic.IOrderManagement.GetDeliveryInfo(System.Int32)">
+            <summary>
+            This method retrnsthe delivery info fromt he delivery database.
+            </summary>
+            <param name="deliveryId">id.</param>
+            <returns>delivery.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IOrderManagement.AddCake(System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            this method adds the cake whole info into the daatabse which will be implemeted later in the class..
+            </summary>
+            <param name="name">cakename.</param>
+            <param name="shape">cakeshape.</param>
+            <param name="color">cakecolor.</param>
+            <param name="price">cakeprice.</param>
+            <param name="deliveryId">deliveryid.</param>
+            <param name="bakerId">bakerid.</param>
+            <param name="basePrice">baseprice.</param>
+        </member>
+        <member name="M:CakeShop.Logic.IOrderManagement.AddCake(System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            this method adds the cake whole info into the daatabse which will be implemeted later in the class..
+            </summary>
+            <param name="name">cakename.</param>
+            <param name="shape">cakeshape.</param>
+            <param name="color">cakecolor.</param>
+            <param name="bakerId">bakerid.</param>
+            <param name="basePrice">baseprice.</param>
+        </member>
+        <member name="M:CakeShop.Logic.IOrderManagement.GetDeliveries">
+            <summary>
+            This lists the deliveries.
+            </summary>
+            <returns>list of all deliveries.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IOrderManagement.AddDelivery(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            this method add the delivery info to the database.
+            </summary>
+            <param name="name">personname.</param>
+            <param name="income">incomeearned.</param>
+            <param name="time">timetaken.</param>
+            <param name="schedule">schedule.</param>
+        </member>
+        <member name="T:CakeShop.Logic.IStaffManagement">
+            <summary>
+            this interface stores the info of the staff.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Logic.IStaffManagement.GetAllBaker">
+            <summary>
+            This return the list of all bakers.
+            </summary>
+            <returns>list.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IStaffManagement.GetBakerInfo(System.Int32)">
+            <summary>
+            based on the id of baker, returns the baker info.
+            </summary>
+            <param name="bakerId">id.</param>
+            <returns>bakerinfo.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.IStaffManagement.UpdateDeliveryPersonName(System.Int32,System.String)">
+            <summary>
+            ths method updates the delivery person name.
+            </summary>
+            <param name="deliveryId">id.</param>
+            <param name="name">name.</param>
+        </member>
+        <member name="M:CakeShop.Logic.IStaffManagement.AddBaker(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            this method adds baler info on the given parameters into the datbase.
+            </summary>
+            <param name="name">name.</param>
+            <param name="position">position.</param>
+            <param name="salary">salary.</param>
+            <param name="workHours">worktimehrs.</param>
+        </member>
+        <member name="T:CakeShop.Logic.OrderManagement">
+            <summary>
+            this class implements the mtehod declared in the interface.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Logic.OrderManagement.#ctor(CakeShop.Repository.ICakeRepository,CakeShop.Repository.IDeliveryRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeShop.Logic.OrderManagement"/> class.
+            </summary>
+            <param name="cakeRepo">cakeRepo.</param>
+            <param name="deliveryRepository">DelvRepo.</param>
+        </member>
+        <member name="M:CakeShop.Logic.OrderManagement.AddCake(System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This method adds cake to the databse and shares all the info.
+            </summary>
+            <param name="name">name.</param>
+            <param name="shape">shape.</param>
+            <param name="color">color.</param>
+            <param name="price">price.</param>
+            <param name="deliveryId">delvid.</param>
+            <param name="bakerId">bakerid.</param>
+            <param name="basePrice">bakerprice.</param>
+        </member>
+        <member name="M:CakeShop.Logic.OrderManagement.AddCake(System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            This method adds cake to the databse and shares all the info.
+            </summary>
+            <param name="name">name.</param>
+            <param name="shape">shape.</param>
+            <param name="color">color.</param>
+            <param name="bakerId">bakerid.</param>
+            <param name="basePrice">bakerprice.</param>
+        </member>
+        <member name="M:CakeShop.Logic.OrderManagement.AddDelivery(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This method adds the delivery info based on given parameters.
+            </summary>
+            <param name="name">name.</param>
+            <param name="income">income.</param>
+            <param name="time">time.</param>
+            <param name="schedule">schedule.</param>
+        </member>
+        <member name="M:CakeShop.Logic.OrderManagement.GetAllCakes">
+            <summary>
+            This method lists all the cakes.
+            </summary>
+            <returns>lists the cakes from the repo.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.OrderManagement.GetCakeInfo(System.Int32)">
+            <summary>
+            gets the cake info method.
+            </summary>
+            <param name="cakeId">cakeid.</param>
+            <returns>cake.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.OrderManagement.GetDeliveries">
+            <summary>
+            this lists the deliveries from the database.
+            </summary>
+            <returns>list of all deiveries.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.OrderManagement.GetDeliveryInfo(System.Int32)">
+            <summary>
+            This method returns the wholenfo of the delivery vased on id.
+            </summary>
+            <param name="deliveryId">int id.</param>
+            <returns>deliveryinfo.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.OrderManagement.UpdateCakeShape(System.Int32,System.String)">
+            <summary>
+            Updates the cakeshape based on cakeid and shape as parameters.
+            </summary>
+            <param name="cakeId">int id.</param>
+            <param name="shape">shape.</param>
+        </member>
+        <member name="M:CakeShop.Logic.OrderManagement.UpdateCake(System.Int32,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            This is UpdateCake method.
+            </summary>
+            <param name="cakeId">Cake id.</param>
+            <param name="name">Cakeobj.</param>
+            <param name="shape">Cake shape.</param>
+            <param name="color">Cake color.</param>
+            <param name="bakerId">Cake bakerid.</param>
+            <param name="basePrice">Cake price.</param>
+        </member>
+        <member name="T:CakeShop.Logic.StaffManagement">
+            <summary>
+            this class implements the methods declared in the IStaffmgmt interface.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Logic.StaffManagement.#ctor(CakeShop.Repository.IDeliveryRepository,CakeShop.Repository.IBakerRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CakeShop.Logic.StaffManagement"/> class.
+            </summary>
+            <param name="deliveryRepository">deliveryrepo.</param>
+            <param name="bakerRepository">bakerRepo.</param>
+        </member>
+        <member name="M:CakeShop.Logic.StaffManagement.AddBaker(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            This method adds the baker info to the repo.
+            </summary>
+            <param name="name">name.</param>
+            <param name="position">position.</param>
+            <param name="salary">salary.</param>
+            <param name="workHours">workhrs.</param>
+        </member>
+        <member name="M:CakeShop.Logic.StaffManagement.GetAllBaker">
+            <summary>
+            Lists all the bakers and return.
+            </summary>
+            <returns>list of all bakers.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.StaffManagement.GetBakerInfo(System.Int32)">
+            <summary>
+            Gets sthe baker info based on the id.
+            </summary>
+            <param name="bakerId">bakerid.</param>
+            <returns>baker.</returns>
+        </member>
+        <member name="M:CakeShop.Logic.StaffManagement.UpdateDeliveryPersonName(System.Int32,System.String)">
+            <summary>
+            This method update sthe delivery man name based on id and name as paarameters.
+            </summary>
+            <param name="deliveryId">delvid.</param>
+            <param name="name">name.</param>
+        </member>
+    </members>
+</doc>
