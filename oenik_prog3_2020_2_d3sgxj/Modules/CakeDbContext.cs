@@ -48,6 +48,8 @@
                     optionsBuilder.UseLazyLoadingProxies().UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;  AttachDbFilename= |DataDirectory|\CakesDb.mdf;  Integrated Security=True; MultipleActiveResultSets= true");
                 }
             }
+
+            base.OnConfiguring(optionsBuilder);
         }
 
         /// <summary>

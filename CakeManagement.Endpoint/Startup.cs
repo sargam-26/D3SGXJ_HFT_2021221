@@ -32,15 +32,15 @@ namespace CakeManagement.Endpoint
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CakeDbContext>();
+            services.AddTransient<CakeDbContext>();
 
-            services.AddScoped<IRepository<Baker>, BakerRepository>();
-            services.AddScoped<IRepository<Cake>, CakeRepository>();
-            services.AddScoped<IRepository<Delivery>, DeliveryRepository>();
+            services.AddTransient<IBakerRepository, BakerRepository>();
+            services.AddTransient<ICakeRepository, CakeRepository>();
+            services.AddTransient<IDeliveryRepository, DeliveryRepository>();
 
-            services.AddScoped<IAdminManagement, AdminManagement>();
-            services.AddScoped<IStaffManagement, StaffManagement>();
-            services.AddScoped<IOrderManagement, OrderManagement>();
+            services.AddTransient<IAdminManagement, AdminManagement>();
+            services.AddTransient<IStaffManagement, StaffManagement>();
+            services.AddTransient<IOrderManagement, OrderManagement>();
 
             services.AddSignalR();
 
