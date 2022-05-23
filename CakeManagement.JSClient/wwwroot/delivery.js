@@ -77,7 +77,7 @@ function create() {
     let income = document.getElementById('income').value;
     let mins = document.getElementById('mins').value;
     let schedule = document.getElementById('schedule').value;
-    fetch('http://localhost:1165/cake', {
+    fetch('http://localhost:1165/delivery', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(

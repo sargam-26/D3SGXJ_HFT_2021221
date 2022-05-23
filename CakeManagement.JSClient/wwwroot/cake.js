@@ -1,4 +1,4 @@
-﻿let cakes = [];
+﻿let cake = [];
 let connection = null;
 getdata();
 setupSignalR();
