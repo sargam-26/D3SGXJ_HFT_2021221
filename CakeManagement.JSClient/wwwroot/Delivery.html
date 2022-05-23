@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Delivery UI</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <br /><a href="Cake.html">Cakes</a>
+    <br /><a href="index.html">Bakers</a>
+    <h1>Delivery Catalog</h1>
+
+    <div id="formdiv">
+        <label>Person Name</label>
+        <input type="text" id="personName" />
+        <label>Income</label>
+        <input type="text" id="income" />
+        <label>Mins</label>
+        <input type="text" id="mins" />
+        <label>Schedule</label>
+        <input type="text" id="schedule" />
+        <button type="button" onclick="create()">Add delivery</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Income</th>
+                <th>Mins</th>
+                <th>Schedule</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="delivery.js"></script>
+</body>
+</html>

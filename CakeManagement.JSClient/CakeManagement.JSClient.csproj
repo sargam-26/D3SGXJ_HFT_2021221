@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,7 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\cake.js" />
+    <Content Remove="wwwroot\delivery.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\delivery.js" />
     <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\cake.js" />
     <None Include="wwwroot\script.js" />
     <None Include="wwwroot\style.css" />
   </ItemGroup>

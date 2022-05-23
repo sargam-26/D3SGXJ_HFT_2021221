@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Cake UI</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <br /><a href="index.html">Bakers</a>
+    <br /><a href="Delivery.html">Deliveries</a>
+    <h1>Cake Catalog</h1>
+
+    <div id="formdiv">
+        <label>Cake Name</label>
+        <input type="text" id="cakename" />
+        <label>Cake Shape</label>
+        <input type="text" id="cakeshape" />
+        <label>Cake Color</label>
+        <input type="text" id="cakecolor" />
+        <label>Cake Price</label>
+        <input type="text" id="cakeprice" />
+        <label>Baker Id</label>
+        <input type="text" id="bakerid" />
+        <label>Deivery Id</label>
+        <input type="text" id="deliveryid" />
+        <button type="button" onclick="create()">Add Cake</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Shape</th>
+                <th>Color</th>
+                <th>Price</th>
+                <th>Baker ID</th>
+                <th>Delivery ID</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="cake.js"></script>
+</body>
+</html>

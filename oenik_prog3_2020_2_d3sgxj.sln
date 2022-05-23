@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.32126.317
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeShop.Data", "oenik_prog3_2020_2_d3sgxj\CakeShop.Data.csproj", "{7EFE0357-DAE0-47D4-A860-2328A8C9CCBA}"
 EndProject
@@ -11,9 +11,24 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeShop.Logic", "CakeShop.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeManagementApp", "CakeManagementApp\CakeManagementApp.csproj", "{4115FD1B-8B57-43E1-8B65-D68CF2FE6F39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeManagement.JSClient", "CakeManagement.JSClient\CakeManagement.JSClient.csproj", "{8FF8F987-9CFC-46C9-9C77-CB92B1877FCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeManagement.JSClient", "CakeManagement.JSClient\CakeManagement.JSClient.csproj", "{8FF8F987-9CFC-46C9-9C77-CB92B1877FCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeManagement.Endpoint", "CakeManagement.Endpoint\CakeManagement.Endpoint.csproj", "{AD37EC94-B09B-4ECE-9126-5B96F67B6850}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeManagement.Endpoint", "CakeManagement.Endpoint\CakeManagement.Endpoint.csproj", "{AD37EC94-B09B-4ECE-9126-5B96F67B6850}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeManagement.Endpoints", "CakeManagement.Endpoints\CakeManagement.Endpoints.csproj", "{6629989B-C2A8-4658-A941-C0CA2E14975A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7EFE0357-DAE0-47D4-A860-2328A8C9CCBA} = {7EFE0357-DAE0-47D4-A860-2328A8C9CCBA}
+		{AB2A20EB-E7F6-4D34-A2AF-633E3376B0CC} = {AB2A20EB-E7F6-4D34-A2AF-633E3376B0CC}
+		{256D2EF4-295B-4E6F-8D28-67C8B6693683} = {256D2EF4-295B-4E6F-8D28-67C8B6693683}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeManagement.WPF", "CakeManagement.WPF\CakeManagement.WPF.csproj", "{C15DD6CD-7209-4638-92CE-15F1E28E41E6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7EFE0357-DAE0-47D4-A860-2328A8C9CCBA} = {7EFE0357-DAE0-47D4-A860-2328A8C9CCBA}
+		{59F3C6E4-A38A-45A0-A5E0-182F39469A56} = {59F3C6E4-A38A-45A0-A5E0-182F39469A56}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeManagement.Client", "CakeManagement.Clinet\CakeManagement.Client.csproj", "{59F3C6E4-A38A-45A0-A5E0-182F39469A56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +60,18 @@ Global
 		{AD37EC94-B09B-4ECE-9126-5B96F67B6850}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD37EC94-B09B-4ECE-9126-5B96F67B6850}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD37EC94-B09B-4ECE-9126-5B96F67B6850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6629989B-C2A8-4658-A941-C0CA2E14975A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6629989B-C2A8-4658-A941-C0CA2E14975A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6629989B-C2A8-4658-A941-C0CA2E14975A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6629989B-C2A8-4658-A941-C0CA2E14975A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C15DD6CD-7209-4638-92CE-15F1E28E41E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C15DD6CD-7209-4638-92CE-15F1E28E41E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C15DD6CD-7209-4638-92CE-15F1E28E41E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C15DD6CD-7209-4638-92CE-15F1E28E41E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59F3C6E4-A38A-45A0-A5E0-182F39469A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59F3C6E4-A38A-45A0-A5E0-182F39469A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59F3C6E4-A38A-45A0-A5E0-182F39469A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59F3C6E4-A38A-45A0-A5E0-182F39469A56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

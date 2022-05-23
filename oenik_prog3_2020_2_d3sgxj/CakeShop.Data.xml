@@ -4,6 +4,40 @@
         <name>CakeShop.Data</name>
     </assembly>
     <members>
+        <member name="T:CakeShop.Data.AveragesResult">
+            <summary>
+            This class shows the datafield of the avergae.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.AveragesResult.BakerName">
+            <summary>
+            gets or sets the baker name.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.AveragesResult.AveragePrice">
+            <summary>
+            gets or sets the average price.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Data.AveragesResult.ToString">
+            <summary>
+            This methods converts the class into string.
+            </summary>
+            <returns>string.</returns>
+        </member>
+        <member name="M:CakeShop.Data.AveragesResult.Equals(System.Object)">
+            <summary>
+            This method override the equals.
+            </summary>
+            <param name="obj">object.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:CakeShop.Data.AveragesResult.GetHashCode">
+            <summary>
+            This method oveerides the hashcode.
+            </summary>
+            <returns>int.</returns>
+        </member>
         <member name="T:CakeShop.Data.Baker">
             <summary>
             This piece of code act as the table of the bakers information in the Cake database.
@@ -172,6 +206,40 @@
             </summary>
             <param name="modelBuilder">ModelBuilder.</param>
         </member>
+        <member name="T:CakeShop.Data.CakesDelivery">
+            <summary>
+            This shows the datafield of the cakes delivery from database.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.CakesDelivery.Person">
+            <summary>
+            gets or sets the person name.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.CakesDelivery.Cakes">
+            <summary>
+            Gets or sets the cake name.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Data.CakesDelivery.Equals(System.Object)">
+            <summary>
+            This method overrides the equals methd.
+            </summary>
+            <param name="obj">object.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:CakeShop.Data.CakesDelivery.GetHashCode">
+            <summary>
+            this method overrides the hashcode.
+            </summary>
+            <returns>int.</returns>
+        </member>
+        <member name="M:CakeShop.Data.CakesDelivery.ToString">
+            <summary>
+            This method converts the class into string.
+            </summary>
+            <returns>String.</returns>
+        </member>
         <member name="T:CakeShop.Data.Delivery">
             <summary>
             This is class Delivery of the database.
@@ -218,6 +286,40 @@
             Returns the string of the class.
             </summary>
             <returns>String.</returns>
+        </member>
+        <member name="T:CakeShop.Data.IncomeByBaker">
+            <summary>
+            This class contains the datafields of the baker.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.IncomeByBaker.BakerName">
+            <summary>
+            gets or sets the bakername.
+            </summary>
+        </member>
+        <member name="P:CakeShop.Data.IncomeByBaker.Income">
+            <summary>
+            gets or sets the baker income.
+            </summary>
+        </member>
+        <member name="M:CakeShop.Data.IncomeByBaker.ToString">
+            <summary>
+            converts the class into the string.
+            </summary>
+            <returns>sting.</returns>
+        </member>
+        <member name="M:CakeShop.Data.IncomeByBaker.Equals(System.Object)">
+            <summary>
+            this method override the equals method.
+            </summary>
+            <param name="obj">object.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:CakeShop.Data.IncomeByBaker.GetHashCode">
+            <summary>
+            this method overrides the gethashcode.
+            </summary>
+            <returns>bool.</returns>
         </member>
     </members>
 </doc>

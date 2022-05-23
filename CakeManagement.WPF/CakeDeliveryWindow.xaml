@@ -1,0 +1,53 @@
+﻿<Window x:Class="CakeManagement.WPF.CakeDeliveryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CakeManagement.WPF"
+        xmlns:viewmodel="clr-namespace:CakeManagement.WPF.ViewModels"
+        mc:Ignorable="d"
+        Title="CakeDeliveryWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <viewmodel:CakeDeliveryViewModel></viewmodel:CakeDeliveryViewModel>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="PersonNames" ItemsSource="{Binding CakesDeliveries}" SelectedItem="{Binding SelectedCakeDelivery}" Grid.Column="0" HorizontalContentAlignment="Stretch" Margin="0,0,0,-27">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="#e05682"  BorderThickness="1" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="{Binding Person}" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="Cakes" ItemsSource="{Binding SelectedCakeDelivery.Cakes}" Grid.Column="1" HorizontalContentAlignment="Stretch" Margin="0,0,0,-27">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="#e05682"  BorderThickness="1" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="{Binding Name}" />
+                            <Label Grid.Column="0" Content="{Binding Shape}" />
+                            <Label Grid.Column="0" Content="{Binding Color}" />
+                            <Label Grid.Column="0" Content="{Binding Price}" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>

@@ -1,0 +1,64 @@
+﻿<Window x:Class="CakeManagement.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CakeManagement.WPF"
+        xmlns:viewmodel="clr-namespace:CakeManagement.WPF.ViewModels"
+        mc:Ignorable="d"
+        Title="BakerWindow" Height="695" Width="959">
+    <Window.DataContext>
+        <viewmodel:BakerViewModel></viewmodel:BakerViewModel>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="AllCashiers" ItemsSource="{Binding Bakers}" SelectedItem="{Binding SelectedBaker}" Grid.Column="0" HorizontalContentAlignment="Stretch" Margin="0,0,0,-27">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="#e05682"  BorderThickness="1" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="{Binding Name}" />
+                            <Label Grid.Column="1" Content="{Binding Position}" />
+                            <Label Grid.Column="2" Content="{Binding Salary}" />
+                            <Label Grid.Column="3" Content="{Binding Workhours}" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Label Content="Baker name" Background="#e05682" Padding="10" />
+            <TextBox Text="{Binding SelectedBaker.Name}" Padding="10" Margin="0,0,0,0" />
+            <Label Content="Position" Background="#e05682" Padding="10" />
+            <TextBox Text="{Binding SelectedBaker.Position}" Padding="10" Margin="0,0,0,0" />
+            <Label Content="Salary" Background="#e05682" Padding="10" />
+            <TextBox Text="{Binding SelectedBaker.Salary}" Padding="10" Margin="0,0,0,0" />
+            <Label Content="Work Hours" Background="#e05682" Padding="10" />
+            <TextBox Text="{Binding SelectedBaker.Workhours}" Padding="10" Margin="0,0,0,0" />
+            <Button Content="New Baker" Command="{Binding CreateBakerButton}" Margin="10" Padding="10" />
+            <Button Content="Delete the Baker" Command="{Binding DeleteBakerButton}" Margin="10" Padding="10" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Edit the baker" Command="{Binding EditBakerButton}" Margin="10" Padding="10" Grid.Column="0"/>
+                <Button Content="Average Price" Command="{Binding AveragePriceButton}" Margin="10" Padding="10" Grid.Column="1"/>
+                <Button Content="Total Income" Command="{Binding IncomeButton}" Margin="10" Padding="10" Grid.Column="2"/>
+            </Grid>
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+        </StackPanel>
+    </Grid>
+</Window>
+
+

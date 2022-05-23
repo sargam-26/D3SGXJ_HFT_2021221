@@ -12,47 +12,55 @@ namespace CakeShop.Logic
     /// <summary>
     /// BakerLogic class inherits fromm IbakerLogic implements methods.
     /// </summary>
-    public class BakerLogic// : IBakerLogic
+    public class BakerLogic : IBakerLogic
     {
-        // IEditorService editService;
-        // IMessenger messengerService;
-        // IBakerRepository bakerRepository;
+        protected IEditorService editService;
 
-        // public BakerLogic(IEditorService editService, IMessenger messengerService, IBakerRepository bakerRepository)
-        // {
-        //    this.editService= editService;
-        //    this.messengerService = messengerService;
-        //    this.bakerRepository = bakerRepository;
-        // }
+        protected IBakerRepository bakerRepository;
 
-        // public void Add(IList<Baker> bakerList)
-        // {
-        //    Baker baker = new Baker();
-        //    if (this.editService.EditBaker(baker) == true)
-        //    {
-        //        bakerList.Add(baker);
-        //    }
-        // }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BakerLogic"/> class.
+        /// </summary>
+        /// <param name="editService"></param>
+        /// <param name="bakerRepository"></param>
+        public BakerLogic(IEditorService editService, IBakerRepository bakerRepository)
+        {
+            this.editService = editService;
+            this.bakerRepository = bakerRepository;
+        }
 
-        // public void Delete(IList<Baker> list, Baker baker)
-        // {
-        //  list.Remove(baker);
-        // }
+        /// <inheritdoc/>
+        public void Add(IList<Baker> bakerList)
+        {
+            Baker baker = new Baker();
+            if (this.editService.EditBaker(baker) == true)
+            {
+                bakerList.Add(baker);
+            }
+        }
 
-        // public void EditBaker(Baker baker)
-        // {
-        //    Baker clone = new Baker();
-        //    clone.CopyFrom(baker);
-        //    if (this.editService.EditBaker(clone) == true)
-        //    {
-        //        baker.CopyFrom(clone);
-        //    }
-        // }
+        /// <inheritdoc/>
+        public void Delete(IList<Baker> list, Baker baker)
+        {
+            list.Remove(baker);
+        }
 
-        // public IList<Baker> getAllBakers()
-        // {
-        //    return this.bakerRepository.GetAll().ToList();
+        /// <inheritdoc/>
+        public void EditBaker(Baker baker)
+        {
+            Baker clone = new Baker();
+            clone.CopyFrom(baker);
+            if (this.editService.EditBaker(clone) == true)
+            {
+                baker.CopyFrom(clone);
+            }
+        }
 
-        // }
+        /// <inheritdoc/>
+        public IList<Baker> GetAllBakers()
+        {
+            return this.bakerRepository.GetAll().ToList();
+
+        }
     }
 }

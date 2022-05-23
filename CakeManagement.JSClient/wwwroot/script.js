@@ -5,7 +5,7 @@ setupSignalR();
 
 function setupSignalR() {
     connection = new signalR.HubConnectionBuilder()
-        .withUrl("http://localhost:53910/hub")
+        .withUrl("http://localhost:1165/hub")
         .configureLogging(signalR.LogLevel.Information)
         .build();
 
@@ -34,10 +34,10 @@ async function start() {
 };
 
 async function getdata() {
-    await fetch('http://localhost:53910/baker')
+     fetch('http://localhost:1165/baker')
         .then(x => x.json())
         .then(y => {
-            actors = y;
+            baker = y;
             //console.log(actors);
             display();
         });
@@ -45,19 +45,19 @@ async function getdata() {
 
 function display() {
     document.getElementById('resultarea').innerHTML = "";
-    actors.forEach(t => {
+    baker.forEach(t => {
         document.getElementById('resultarea').innerHTML +=
-            "<tr><td>" + t.bakerID + "</td><td>"
-        + t.bakerName + "</td><td>" +
+            "<tr><td>" + t.id + "</td><td>"
+        + t.name + "</td><td>" +
         + t.salary + "</td><td>" +
         + t.workhours + "</td><td>" +
-            `<button type="button" onclick="remove(${t.bakerID})">Delete</button>`
+            `<button type="button" onclick="remove(${t.id})">Delete</button>`
             + "</td></tr>";
     });
 }
 
 function remove(id) {
-    fetch('http://localhost:53910/actor/' + id, {
+    fetch('http://localhost:1165/baker/' + id, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json', },
         body: null
@@ -73,11 +73,13 @@ function remove(id) {
 
 function create() {
     let name = document.getElementById('bakername').value;
-    fetch('http://localhost:53910/actor', {
+    let salary = document.getElementById('salary').value;
+    let workhours = document.getElementById('workhours').value;
+    fetch('http://localhost:1165/baker', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
-            { bakerName: name })
+            { name: name, salary : salary,workhours:workhours })
     })
         .then(response => response)
         .then(data => {

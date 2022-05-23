@@ -26,7 +26,7 @@ namespace CakeManagementApp
             MyIoc.Instance.Register<IMessenger>(() => Messenger.Default);
             MyIoc.Instance.Register<IBakerLogicVM, BakerLogic>();
             MyIoc.Instance.Register<IBakerRepository, BakerRepository>();
-            MyIoc.Instance.Register<DbContext, CakeDbContext>();
+            MyIoc.Instance.Register<CakeDbContext>();
 
         }
 

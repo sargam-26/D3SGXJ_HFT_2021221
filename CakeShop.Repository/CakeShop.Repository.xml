@@ -60,7 +60,7 @@
             THis class stores the query related to baker table.
             </summary>
         </member>
-        <member name="M:CakeShop.Repository.BakerRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+        <member name="M:CakeShop.Repository.BakerRepository.#ctor(CakeShop.Data.CakeDbContext)">
             <summary>
             Initializes a new instance of the <see cref="T:CakeShop.Repository.BakerRepository"/> class.
             </summary>
@@ -99,7 +99,7 @@
             This class stores the query related to the cake table.
             </summary>
         </member>
-        <member name="M:CakeShop.Repository.CakeRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+        <member name="M:CakeShop.Repository.CakeRepository.#ctor(CakeShop.Data.CakeDbContext)">
             <summary>
             Initializes a new instance of the <see cref="T:CakeShop.Repository.CakeRepository"/> class.
             </summary>
@@ -169,7 +169,7 @@
             This class stores the query related to the delivery table.
             </summary>
         </member>
-        <member name="M:CakeShop.Repository.DeliveryRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+        <member name="M:CakeShop.Repository.DeliveryRepository.#ctor(CakeShop.Data.CakeDbContext)">
             <summary>
             Initializes a new instance of the <see cref="T:CakeShop.Repository.DeliveryRepository"/> class.
             </summary>

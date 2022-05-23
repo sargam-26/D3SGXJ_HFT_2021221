@@ -16,7 +16,7 @@
         /// Initializes a new instance of the <see cref="DeliveryRepository"/> class.
         /// </summary>
         /// <param name="ctx">DbContext.</param>
-        public DeliveryRepository(DbContext ctx)
+        public DeliveryRepository(CakeDbContext ctx)
             : base(ctx)
         {
         }

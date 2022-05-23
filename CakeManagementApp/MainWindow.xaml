@@ -14,7 +14,7 @@
                 <Label Content="{Binding Path=Name}" DockPanel.Dock="Top" HorizontalAlignment="Center" />
                 <Label Content="{Binding Path=Salary}" DockPanel.Dock="Bottom" HorizontalAlignment="Center" />
                 <Label Content="{Binding Path=Position}" DockPanel.Dock="Left"  />
-                <Label Content="{Binding Path=Workhours}" DockPanel.Dock="Right" />
+                <Label Content="{Binding Path=WorkHours}" DockPanel.Dock="Right" />
                 <Label></Label>
             </DockPanel>
         </DataTemplate>

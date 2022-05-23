@@ -95,78 +95,29 @@
             </summary>
             <returns>Cakelist.</returns>
         </member>
-        <member name="T:CakeShop.Logic.AveragesResult">
-            <summary>
-            This class shows the datafield of the avergae.
-            </summary>
-        </member>
-        <member name="P:CakeShop.Logic.AveragesResult.BakerName">
-            <summary>
-            gets or sets the baker name.
-            </summary>
-        </member>
-        <member name="P:CakeShop.Logic.AveragesResult.AveragePrice">
-            <summary>
-            gets or sets the average price.
-            </summary>
-        </member>
-        <member name="M:CakeShop.Logic.AveragesResult.ToString">
-            <summary>
-            This methods converts the class into string.
-            </summary>
-            <returns>string.</returns>
-        </member>
-        <member name="M:CakeShop.Logic.AveragesResult.Equals(System.Object)">
-            <summary>
-            This method override the equals.
-            </summary>
-            <param name="obj">object.</param>
-            <returns>bool.</returns>
-        </member>
-        <member name="M:CakeShop.Logic.AveragesResult.GetHashCode">
-            <summary>
-            This method oveerides the hashcode.
-            </summary>
-            <returns>int.</returns>
-        </member>
         <member name="T:CakeShop.Logic.BakerLogic">
             <summary>
             BakerLogic class inherits fromm IbakerLogic implements methods.
             </summary>
         </member>
-        <member name="T:CakeShop.Logic.CakesDelivery">
+        <member name="M:CakeShop.Logic.BakerLogic.#ctor(CakeShop.Logic.IEditorService,CakeShop.Repository.IBakerRepository)">
             <summary>
-            This shows the datafield of the cakes delivery from database.
+            Initializes a new instance of the <see cref="T:CakeShop.Logic.BakerLogic"/> class.
             </summary>
+            <param name="editService"></param>
+            <param name="bakerRepository"></param>
         </member>
-        <member name="P:CakeShop.Logic.CakesDelivery.Person">
-            <summary>
-            gets or sets the person name.
-            </summary>
+        <member name="M:CakeShop.Logic.BakerLogic.Add(System.Collections.Generic.IList{CakeShop.Data.Baker})">
+            <inheritdoc/>
         </member>
-        <member name="P:CakeShop.Logic.CakesDelivery.Cakes">
-            <summary>
-            Gets or sets the cake name.
-            </summary>
+        <member name="M:CakeShop.Logic.BakerLogic.Delete(System.Collections.Generic.IList{CakeShop.Data.Baker},CakeShop.Data.Baker)">
+            <inheritdoc/>
         </member>
-        <member name="M:CakeShop.Logic.CakesDelivery.Equals(System.Object)">
-            <summary>
-            This method overrides the equals methd.
-            </summary>
-            <param name="obj">object.</param>
-            <returns>bool.</returns>
+        <member name="M:CakeShop.Logic.BakerLogic.EditBaker(CakeShop.Data.Baker)">
+            <inheritdoc/>
         </member>
-        <member name="M:CakeShop.Logic.CakesDelivery.GetHashCode">
-            <summary>
-            this method overrides the hashcode.
-            </summary>
-            <returns>int.</returns>
-        </member>
-        <member name="M:CakeShop.Logic.CakesDelivery.ToString">
-            <summary>
-            This method converts the class into string.
-            </summary>
-            <returns>String.</returns>
+        <member name="M:CakeShop.Logic.BakerLogic.GetAllBakers">
+            <inheritdoc/>
         </member>
         <member name="T:CakeShop.Logic.IAdminManagement">
             <summary>
@@ -291,40 +242,6 @@
             EditBaker method.
             </summary>
             <param name="baker">Baker.</param>
-            <returns>bool.</returns>
-        </member>
-        <member name="T:CakeShop.Logic.IncomeByBaker">
-            <summary>
-            This class contains the datafields of the baker.
-            </summary>
-        </member>
-        <member name="P:CakeShop.Logic.IncomeByBaker.BakerName">
-            <summary>
-            gets or sets the bakername.
-            </summary>
-        </member>
-        <member name="P:CakeShop.Logic.IncomeByBaker.Income">
-            <summary>
-            gets or sets the baker income.
-            </summary>
-        </member>
-        <member name="M:CakeShop.Logic.IncomeByBaker.ToString">
-            <summary>
-            converts the class into the string.
-            </summary>
-            <returns>sting.</returns>
-        </member>
-        <member name="M:CakeShop.Logic.IncomeByBaker.Equals(System.Object)">
-            <summary>
-            this method override the equals method.
-            </summary>
-            <param name="obj">object.</param>
-            <returns>bool.</returns>
-        </member>
-        <member name="M:CakeShop.Logic.IncomeByBaker.GetHashCode">
-            <summary>
-            this method overrides the gethashcode.
-            </summary>
             <returns>bool.</returns>
         </member>
         <member name="T:CakeShop.Logic.IOrderManagement">

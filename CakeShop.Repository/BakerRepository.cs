@@ -16,7 +16,7 @@
         /// Initializes a new instance of the <see cref="BakerRepository"/> class.
         /// </summary>
         /// <param name="ctx">DbCOntext.</param>
-        public BakerRepository(DbContext ctx)
+        public BakerRepository(CakeDbContext ctx)
             : base(ctx)
         {
         }
